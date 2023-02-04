@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://3.Assets/3.Fonts/RobotoMod50.tres" type="DynamicFont" id=1]
+[ext_resource path="res://2.Scripts/Menu.gd" type="Script" id=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -34.0
+margin_top = -90.0
+margin_right = 35.0
+margin_bottom = -19.0
+custom_fonts/font = ExtResource( 1 )
+text = "Carrots"
+uppercase = true
+
+[node name="Start" type="Button" parent="."]
+margin_left = -62.0
+margin_top = -33.0
+margin_right = 61.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+
+[node name="Quit" type="Button" parent="."]
+margin_left = -62.0
+margin_top = 43.0
+margin_right = 61.0
+margin_bottom = 109.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+
+[connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_Quit_button_down"]
