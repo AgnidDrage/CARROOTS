@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://1.Nodes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://2.Scripts/World.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21, 152 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="DestroyerDetector" type="Area2D" parent="."]
+
+[node name="NodeDestroyer" type="CollisionShape2D" parent="DestroyerDetector"]
+position = Vector2( -282, -1 )
+shape = SubResource( 1 )
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2( 337, 75 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 73 )
+
+[connection signal="body_entered" from="DestroyerDetector" to="." method="_on_DestroyerDetector_body_entered"]
