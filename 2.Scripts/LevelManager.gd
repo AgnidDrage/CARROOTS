@@ -3,7 +3,7 @@ extends Node
 
 var score = 0
 var stamina = 100
-var timeleft = 50
+var timeleft = 30
 
 var barraStamina
 
@@ -29,7 +29,9 @@ func update_StaminaBar():
 	barraStamina.value = stamina
 
 func gameover():
-	if stamina <= 0 or timeleft <= 0:
-		get_tree().change_scene("res://1.Nodes/GameOver.tscn")
+	if timeleft <= 0:
+		get_tree().change_scene("res://1.Nodes/GameOverBudget.tscn")
+	if stamina <= 0:
+		get_tree().change_scene("res://1.Nodes/GameOverErnia.tscn")
 
 

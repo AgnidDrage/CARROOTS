@@ -3,6 +3,7 @@
 [ext_resource path="res://3.Assets/1.Art/Carrots/zanahoriaB - 01.png" type="Texture" id=1]
 [ext_resource path="res://2.Scripts/Carrot02Config.gd" type="Script" id=2]
 [ext_resource path="res://3.Assets/1.Art/Carrots/SpriteSheet - CarrotB_Harvested.png" type="Texture" id=3]
+[ext_resource path="res://3.Assets/4.Animations/2.CarrotsNodesHarvested02.tres" type="Animation" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -14,23 +15,7 @@ resource_name = "Harvested01"
 length = 0.96
 step = 0.04
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Detector/KineticAnimation/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76, 0.8, 0.84, 0.88 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "Harvested02"
-step = 0.04
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Detector/KineticAnimation/Sprite:frame")
+tracks/0/path = NodePath("KineticAnimation/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -72,7 +57,7 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 
 [node name="Carrot02" type="KinematicBody2D"]
-z_index = 2
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -98,7 +83,7 @@ vframes = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KineticAnimation"]
 root_node = NodePath("../..")
 anims/Harvested01 = SubResource( 3 )
-anims/Harvested02 = SubResource( 6 )
+anims/Harvested02 = ExtResource( 4 )
 anims/RESET = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KineticAnimation"]

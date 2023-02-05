@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://3.Assets/3.Fonts/RobotoMod33.tres" type="DynamicFont" id=1]
+[ext_resource path="res://3.Assets/1.Art/Wonejo/SpriteSheet -Hernia.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=5]
+resource_name = "HerniaGameOver"
+script/source = "extends Control
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$AnimationPlayer.play(\"Hernia\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Restart_button_down():
+	get_tree().change_scene(\"res://1.Nodes/MainGame.tscn\")
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "AFIP"
+length = 0.52
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Hernia"
+length = 0.75
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="GameOverErnia" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -225, 5 )
+z_index = 2
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="GameOverPanel" type="Panel" parent="."]
+margin_left = -487.0
+margin_top = -275.0
+margin_right = 493.0
+margin_bottom = 280.0
+
+[node name="Label" type="Label" parent="GameOverPanel"]
+margin_left = 598.0
+margin_top = 50.0
+margin_right = 902.0
+margin_bottom = 155.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAMEOVER
+Git Gud, Scrub"
+align = 1
+
+[node name="Restart" type="Button" parent="GameOverPanel"]
+margin_left = 673.0
+margin_top = 372.0
+margin_right = 815.0
+margin_bottom = 438.0
+custom_fonts/font = ExtResource( 1 )
+text = "Restart"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AFIP = SubResource( 2 )
+anims/Hernia = SubResource( 4 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="button_down" from="GameOverPanel/Restart" to="." method="_on_Restart_button_down"]

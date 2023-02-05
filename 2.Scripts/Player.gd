@@ -8,11 +8,13 @@ var time_alive = 0
 var InCooldown = true
 var InitialCool = true
 var cool_down_time = 1
+var harvest_anim = false
 
 const staminaData = {
 	0: -15,
 	1: -30,
-	2: -60
+	2: -60,
+	3: -15
 }
 
 const moneyEarned = {
@@ -21,6 +23,9 @@ const moneyEarned = {
 	2: 10
 }
 
+func _ready():
+	$AnimationPlayer.play("Run")
+	carrotType = 3
 
 func _physics_process(delta):
 	harvest()
@@ -32,6 +37,7 @@ func harvest():
 			return # Break the function
 		var levelManager = get_parent().get_node("LevelManager")
 		if Input.is_action_just_pressed("Harvest") and InCooldown == false:
+			$AnimationPlayer.play("Harvest")
 			levelManager.stamina += staminaData[carrotType]
 			if canHarvest:
 				if carrotType == null:
@@ -40,6 +46,7 @@ func harvest():
 				bodyTemp.isHarvested = true
 			InCooldown = true
 			cooldown()
+		$AnimationPlayer.queue("Run")
 
 
 func _on_CarrotDetector_body_entered(body):
@@ -59,10 +66,13 @@ func _on_CarrotDetector_body_entered(body):
 func _on_CarrotDetector_body_exited(body):
 	if body is Carrot01:
 		canHarvest = false
+		carrotType = 3
 	elif body is Carrot02:
 		canHarvest = false
+		carrotType = 3
 	elif body is Carrot03:
 		canHarvest = false
+		carrotType = 3
 
 func cooldown():
 	yield(get_tree().create_timer(cool_down_time), "timeout")
