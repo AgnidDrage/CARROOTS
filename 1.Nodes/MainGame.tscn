@@ -1,14 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://1.Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://3.Assets/3.Fonts/RobotoMod33.tres" type="DynamicFont" id=2]
 [ext_resource path="res://2.Scripts/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://2.Scripts/World.gd" type="Script" id=4]
-[ext_resource path="res://3.Assets/1.Art/Cielo.png" type="Texture" id=5]
-[ext_resource path="res://3.Assets/1.Art/Fondo Medio/Fondo Medio Arbol.png" type="Texture" id=6]
-[ext_resource path="res://3.Assets/1.Art/Piso/Piso 1.png" type="Texture" id=7]
-[ext_resource path="res://3.Assets/1.Art/Pasto Frente.png" type="Texture" id=8]
-[ext_resource path="res://2.Scripts/ParallexConf.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 152 )
@@ -19,6 +14,11 @@ script = ExtResource( 4 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 98 )
+z_index = 2
+z_as_relative = false
 
 [node name="DestroyerDetector" type="Area2D" parent="."]
 visible = false
@@ -68,48 +68,6 @@ margin_left = -97.0
 margin_top = -141.0
 margin_right = 97.0
 margin_bottom = -82.0
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_limit_begin = Vector2( -500, 0 )
-scroll_limit_end = Vector2( 500, 0 )
-script = ExtResource( 9 )
-
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
-position = Vector2( -0.999998, 1 )
-scale = Vector2( 0.138542, 0.152778 )
-texture = ExtResource( 5 )
-
-[node name="Mountain" type="ParallaxLayer" parent="ParallaxBackground"]
-z_index = 1
-motion_offset = Vector2( -10, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountain"]
-position = Vector2( -1.00001, 12.5 )
-scale = Vector2( 0.133854, 0.128241 )
-texture = ExtResource( 6 )
-
-[node name="Road" type="ParallaxLayer" parent="ParallaxBackground"]
-z_index = 1
-
-[node name="Player" parent="ParallaxBackground/Road" instance=ExtResource( 1 )]
-position = Vector2( 0, 98 )
-z_index = 2
-z_as_relative = false
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Road"]
-position = Vector2( 2.5, 93 )
-scale = Vector2( 0.135677, 0.0657407 )
-texture = ExtResource( 7 )
-
-[node name="Grass" type="ParallaxLayer" parent="ParallaxBackground"]
-z_index = 3
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Grass"]
-position = Vector2( 0, 46.5 )
-scale = Vector2( 0.133333, 0.102315 )
-texture = ExtResource( 8 )
 
 [connection signal="body_entered" from="DestroyerDetector" to="." method="_on_DestroyerDetector_body_entered"]
 [connection signal="button_down" from="UserInterface/GameOverPanel/Restart" to="LevelManager" method="_on_Restart_button_down"]

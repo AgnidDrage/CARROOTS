@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Carrot",
 "language": "GDScript",
 "path": "res://2.Scripts/Carrot.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Landscape",
+"language": "GDScript",
+"path": "res://2.Scripts/LandscapeConfig.gd"
 } ]
 _global_script_class_icons={
-"Carrot": ""
+"Carrot": "",
+"Landscape": ""
 }
 
 [application]
@@ -23,6 +29,14 @@ _global_script_class_icons={
 config/name="CARROTS"
 run/main_scene="res://1.Nodes/Menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [global]
 

@@ -35,7 +35,7 @@ func _input(event):
 func carrotSpawn():
 	var CarrotInstance = CarrotPre.instance()
 	CarrotInstance.position = Vector2(337, 98)
-	get_node("ParallaxBackground/Road").add_child(CarrotInstance)
+	add_child(CarrotInstance)
 
 
 

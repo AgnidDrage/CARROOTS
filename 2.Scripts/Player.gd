@@ -17,7 +17,7 @@ func harvest():
 		cooldown()
 		InitialCool = false
 		return # Break the function
-	var levelManager = get_parent().get_parent().get_parent().get_node("LevelManager")
+	var levelManager = get_parent().get_node("LevelManager")
 	if Input.is_action_just_pressed("Harvest") and InCooldown == false:
 		levelManager.stamina -= 15
 		if canHarvest: # Modificar para ganar distinto budget segun carrot
