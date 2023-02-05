@@ -26,18 +26,20 @@ func _physics_process(delta):
 	harvest()
 
 func harvest():
-	if InCooldown and InitialCool:
-		cooldown()
-		InitialCool = false
-		return # Break the function
-	var levelManager = get_parent().get_node("LevelManager")
-	if Input.is_action_just_pressed("Harvest") and InCooldown == false:
-		levelManager.stamina += staminaData[carrotType]
-		if canHarvest:
-			levelManager.timeleft += moneyEarned[carrotType]
-			bodyTemp.isHarvested = true
-		InCooldown = true
-		cooldown()
+		if InCooldown and InitialCool:
+			cooldown()
+			InitialCool = false
+			return # Break the function
+		var levelManager = get_parent().get_node("LevelManager")
+		if Input.is_action_just_pressed("Harvest") and InCooldown == false:
+			levelManager.stamina += staminaData[carrotType]
+			if canHarvest:
+				if carrotType == null:
+					return
+				levelManager.timeleft += moneyEarned[carrotType]
+				bodyTemp.isHarvested = true
+			InCooldown = true
+			cooldown()
 
 
 func _on_CarrotDetector_body_entered(body):

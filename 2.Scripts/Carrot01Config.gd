@@ -21,10 +21,15 @@ func _process(delta):
 func changeSprite():
 	if isHarvested:
 		get_node("Sprite").texture = load("res://3.Assets/1.Art/Carrots/SoilA - 01.png")
-		
+		runAnimation()
 
 func runAnimation():
-	$KineticAnimation.position = position
+	$KineticAnimation.show()
+	#$KineticAnimation.position.x = position.x
+	$KineticAnimation.position.y = position.y - 500
 	$KineticAnimation/AnimationPlayer.play("Harvested01")
+
+	$KineticAnimation/Sprite.position.y = position.y - 300
+	
 	
 	
