@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://1.Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://3.Assets/3.Fonts/RobotoMod33.tres" type="DynamicFont" id=2]
 [ext_resource path="res://2.Scripts/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://2.Scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://1.Nodes/1.ParallaxNodes/ParallaxController.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 152 )
@@ -18,23 +19,21 @@ bg_color = Color( 1, 0, 0, 0.388235 )
 script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.5, 0.5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 98 )
+position = Vector2( 0, 310 )
+scale = Vector2( 3, 3 )
 z_index = 2
 z_as_relative = false
 
 [node name="DestroyerDetector" type="Area2D" parent="."]
-visible = false
 
 [node name="NodeDestroyer" type="CollisionShape2D" parent="DestroyerDetector"]
-position = Vector2( -282, -1 )
+position = Vector2( -1099, 2 )
 shape = SubResource( 1 )
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2( 337, 75 )
+position = Vector2( 1090, 115 )
 
 [node name="LevelManager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
@@ -92,6 +91,8 @@ margin_bottom = -162.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 value = 100.0
+
+[node name="ParallaxController" parent="." instance=ExtResource( 5 )]
 
 [connection signal="body_entered" from="DestroyerDetector" to="." method="_on_DestroyerDetector_body_entered"]
 [connection signal="button_down" from="UserInterface/GameOverPanel/Restart" to="LevelManager" method="_on_Restart_button_down"]

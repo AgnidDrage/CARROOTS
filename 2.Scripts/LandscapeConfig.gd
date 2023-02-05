@@ -14,23 +14,23 @@ func _ready():
 	preload("res://3.Assets/1.Art/Fondo Medio/Fondo Medio.png")
 
 func _process(delta):
-	self.position.x += -5
+	self.position.x += -2
 
-func selectLandscape():
+func select():
 	random.randomize()
 	var prob = random.randf_range(0, 1)
 	var imgSprite
 	if prob < 0.19:
 		imgSprite = "res://3.Assets/1.Art/Fondo Medio/Fondo Medio Arbol.png"
-	elif prob >= 0.19 and prob < 0.19*2:
+	elif prob >= 0.19 and prob < 0.38:
 		imgSprite = "res://3.Assets/1.Art/Fondo Medio/Fondo Medio Cultivo.png"
-	elif prob >= 0.19*2 and prob < 0.19*3:
+	elif prob >= 0.38 and prob < 0.57:
 		imgSprite = "res://3.Assets/1.Art/Fondo Medio/Fondo Medio Granja.png"
-	elif prob >= 0.19*3 and prob < 0.19*4:
+	elif prob >= 0.57 and prob < 0.76:
 		imgSprite = "res://3.Assets/1.Art/Fondo Medio/Fondo Medio Vacas.png"
-	elif prob >= 0.19*4 and prob < 0.19*5:
+	elif prob >= 0.76 and prob < 0.95:
 		imgSprite = "res://3.Assets/1.Art/Fondo Medio/Fondo Medio.png"
-	elif prob >= 0.19*5:
+	elif prob >= 0.95 and prob < 1:
 		imgSprite = "res://3.Assets/1.Art/Fondo Medio/Fondo Medio Random.png"
 	return imgSprite
 
