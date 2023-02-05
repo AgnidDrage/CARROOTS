@@ -14,9 +14,9 @@ func _ready():
 	preload("res://3.Assets/1.Art/Fondo Medio/Fondo Medio.png")
 
 func _process(delta):
-	self.position.x += -5
+	self.position.x += -2
 
-func selectLandscape():
+func select():
 	random.randomize()
 	var prob = random.randf_range(0, 1)
 	var imgSprite
