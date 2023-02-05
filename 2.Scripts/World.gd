@@ -34,7 +34,7 @@ func _input(event):
 
 func carrotSpawn():
 	var CarrotInstance = CarrotPre.instance()
-	CarrotInstance.position = Vector2(337, 98)
+	CarrotInstance.position = Vector2(1090, 310)
 	add_child(CarrotInstance)
 
 

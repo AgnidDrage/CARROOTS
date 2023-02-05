@@ -19,13 +19,13 @@ func select():
 	var prob = random.randf_range(0, 1)
 	print(prob)
 	var imgSprite
-	if prob < 0.35:
+	if prob < 0.475:
 		imgSprite = "res://3.Assets/1.Art/Piso/Piso 1.png"
-	elif prob >= 0.35 and prob < 0.70:
+	elif prob >= 0.475 and prob < 0.95:
 		imgSprite = "res://3.Assets/1.Art/Piso/Piso 2.png"
-	elif prob >= 0.70 and prob < 0.85:
+	elif prob >= 0.95 and prob < 0.975:
 		imgSprite = "res://3.Assets/1.Art/Piso/Piso 2 Piedras.png"
-	elif prob >= 0.85 and prob < 1:
+	elif prob >= 0.975 and prob < 1:
 		imgSprite = "res://3.Assets/1.Art/Piso/Piso 1 Charco.png"
 		
 	return imgSprite
