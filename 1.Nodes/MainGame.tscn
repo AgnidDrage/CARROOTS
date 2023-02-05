@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://1.Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://3.Assets/3.Fonts/RobotoMod33.tres" type="DynamicFont" id=2]
@@ -42,57 +42,27 @@ script = ExtResource( 3 )
 margin_right = 591.0
 margin_bottom = 297.0
 
-[node name="GameOverPanel" type="Panel" parent="UserInterface"]
-visible = false
-margin_left = -200.0
-margin_top = -118.0
-margin_right = 197.0
-margin_bottom = 122.0
-
-[node name="Label" type="Label" parent="UserInterface/GameOverPanel"]
-margin_left = 17.0
-margin_top = 65.0
-margin_right = 391.0
-margin_bottom = 125.0
-custom_fonts/font = ExtResource( 2 )
-text = "You lose all your budget"
-
-[node name="Restart" type="Button" parent="UserInterface/GameOverPanel"]
-margin_left = 139.0
-margin_top = 152.0
-margin_right = 261.0
-margin_bottom = 198.0
-custom_fonts/font = ExtResource( 2 )
-text = "Restart"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="UserInterface"]
 follow_viewport_enable = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UserInterface/CanvasLayer"]
-margin_left = -455.0
-margin_top = -252.0
-margin_right = -118.0
-margin_bottom = -112.0
+margin_left = -857.0
+margin_top = -387.0
+margin_right = -114.0
+margin_bottom = -157.0
+custom_fonts/normal_font = ExtResource( 2 )
 
 [node name="Stamina bar" type="ProgressBar" parent="UserInterface/CanvasLayer" groups=["StaminaBar"]]
-margin_left = -462.0
-margin_top = -183.0
-margin_right = -166.0
-margin_bottom = -162.0
+margin_left = -868.0
+margin_top = -490.0
+margin_right = -117.0
+margin_bottom = -418.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 value = 100.0
-
-[node name="Stamina bar2" type="ProgressBar" parent="UserInterface/CanvasLayer" groups=["StaminaBar"]]
-margin_left = -462.0
-margin_top = -183.0
-margin_right = -166.0
-margin_bottom = -162.0
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
-value = 100.0
+percent_visible = false
 
 [node name="ParallaxController" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [connection signal="body_entered" from="DestroyerDetector" to="." method="_on_DestroyerDetector_body_entered"]
-[connection signal="button_down" from="UserInterface/GameOverPanel/Restart" to="LevelManager" method="_on_Restart_button_down"]

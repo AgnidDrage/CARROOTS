@@ -21,7 +21,6 @@ func spawn(preloadObj, pos):
 	var obj_instance = preloadObj.instance()
 	var sprite_path = obj_instance.select()
 	obj_instance.get_node("Sprite").texture = load(sprite_path)
-	print(obj_instance)
 	obj_instance.position = pos
 	add_child(obj_instance)
 

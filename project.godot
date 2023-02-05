@@ -15,6 +15,21 @@ _global_script_classes=[ {
 "path": "res://2.Scripts/Carrot.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "Carrot01",
+"language": "GDScript",
+"path": "res://2.Scripts/Carrot01Config.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Carrot02",
+"language": "GDScript",
+"path": "res://2.Scripts/Carrot02Config.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Carrot03",
+"language": "GDScript",
+"path": "res://2.Scripts/Carrot03Config.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Grass",
 "language": "GDScript",
 "path": "res://2.Scripts/GrassConfig.gd"
@@ -31,6 +46,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Carrot": "",
+"Carrot01": "",
+"Carrot02": "",
+"Carrot03": "",
 "Grass": "",
 "Landscape": "",
 "Road": ""

@@ -12,12 +12,11 @@ func _ready():
 	preload("res://3.Assets/1.Art/Piso/Piso 2.png")
 
 func _process(delta):
-	self.position.x += -20
+	self.position.x += -17
 	
 func select():
 	random.randomize()
 	var prob = random.randf_range(0, 1)
-	print(prob)
 	var imgSprite
 	if prob < 0.475:
 		imgSprite = "res://3.Assets/1.Art/Piso/Piso 1.png"

@@ -8,7 +8,7 @@ func _ready():
 	preload("res://3.Assets/1.Art/Pasto Frente.png")
 	
 func _process(delta):
-	self.position.x += -25
+	self.position.x += -22
 
 func select():
 	var imgSprite = "res://3.Assets/1.Art/Pasto Frente.png"
