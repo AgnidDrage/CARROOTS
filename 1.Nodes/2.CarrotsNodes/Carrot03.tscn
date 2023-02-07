@@ -74,9 +74,6 @@ shape = SubResource( 1 )
 position = Vector2( 62.5, -13 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 62.5, -13 )
-
 [node name="KineticAnimation" type="KinematicBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="KineticAnimation"]

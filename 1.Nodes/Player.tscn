@@ -85,7 +85,5 @@ anims/Harvest = SubResource( 5 )
 anims/RESET = SubResource( 3 )
 anims/Run = SubResource( 4 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [connection signal="body_entered" from="CarrotDetector" to="." method="_on_CarrotDetector_body_entered"]
 [connection signal="body_exited" from="CarrotDetector" to="." method="_on_CarrotDetector_body_exited"]

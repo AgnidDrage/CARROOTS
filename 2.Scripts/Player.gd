@@ -12,15 +12,15 @@ var harvest_anim = false
 
 const staminaData = {
 	0: -15,
-	1: -30,
-	2: -60,
+	1: -60,
+	2: -30,
 	3: -15
 }
 
 const moneyEarned = {
 	0: 3,
-	1: 7,
-	2: 10
+	1: 10,
+	2: 7
 }
 
 func _ready():

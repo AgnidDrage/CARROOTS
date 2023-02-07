@@ -55,9 +55,9 @@ func selectCarrot():
 	if prob < 0.5:
 		 return Carrot01
 	elif prob >= 0.5 and prob <0.85:
-		return Carrot02
-	elif prob >= 0.85 and prob < 1:
 		return Carrot03
+	elif prob >= 0.85 and prob < 1:
+		return Carrot02
 
 func _on_DestroyerDetector_body_entered(body):
 	if body is Carrot:
