@@ -7,7 +7,7 @@
 extents = Vector2( 134.625, 763.094 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 131.5, 64 )
+extents = Vector2( 182.25, 64 )
 
 [node name="ParallaxController" type="Node2D"]
 script = ExtResource( 2 )
@@ -28,7 +28,7 @@ shape = SubResource( 1 )
 [node name="RoadDetect" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoadDetect"]
-position = Vector2( -2010, -60 )
+position = Vector2( -1959.25, -60 )
 scale = Vector2( 1, 12 )
 shape = SubResource( 2 )
 

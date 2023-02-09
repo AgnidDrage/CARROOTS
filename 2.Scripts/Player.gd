@@ -9,6 +9,8 @@ var InCooldown = true
 var InitialCool = true
 var cool_down_time = 1
 var harvest_anim = false
+var touch = false
+
 
 const staminaData = {
 	0: -15,
@@ -36,7 +38,8 @@ func harvest():
 			InitialCool = false
 			return # Break the function
 		var levelManager = get_parent().get_node("LevelManager")
-		if Input.is_action_just_pressed("Harvest") and InCooldown == false:
+		if Input.is_action_just_pressed("Harvest") and InCooldown == false or touch == true and InCooldown == false:
+			print(touch)
 			$AnimationPlayer.play("Harvest")
 			levelManager.stamina += staminaData[carrotType]
 			if canHarvest:
@@ -77,3 +80,10 @@ func _on_CarrotDetector_body_exited(body):
 func cooldown():
 	yield(get_tree().create_timer(cool_down_time), "timeout")
 	InCooldown = false
+
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			touch = true
+		elif !event.pressed:
+			touch = false
