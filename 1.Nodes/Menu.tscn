@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://3.Assets/1.Art/Fondo-Menú.ogv" type="VideoStream" id=1]
 [ext_resource path="res://2.Scripts/Menu.gd" type="Script" id=2]
-[ext_resource path="res://3.Assets/3.Fonts/RobotoModMenu.tres" type="DynamicFont" id=3]
+[ext_resource path="res://3.Assets/2.Fonts/RobotoModMenu.tres" type="DynamicFont" id=3]
+[ext_resource path="res://3.Assets/4.Sound/Button - Pop.ogg" type="AudioStream" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -15,7 +17,8 @@ current = true
 margin_left = -960.0
 margin_top = -540.0
 margin_right = 960.0
-margin_bottom = 540.0
+margin_bottom = 567.0
+stream = ExtResource( 1 )
 autoplay = true
 
 [node name="Label" type="Label" parent="."]
@@ -43,6 +46,9 @@ margin_bottom = -370.36
 custom_fonts/font = ExtResource( 3 )
 text = "Start"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Start"]
+stream = ExtResource( 4 )
+
 [node name="Quit" type="Button" parent="."]
 margin_left = -296.0
 margin_top = 148.0
@@ -52,4 +58,5 @@ custom_fonts/font = ExtResource( 3 )
 text = "Quit"
 
 [connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="button_down" from="Quit" to="." method="_on_Quit_button_down"]

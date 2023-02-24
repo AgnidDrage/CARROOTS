@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Saca Carrot.ogg-4abe74e3f94fd6940f0eca9327889159.oggstr"
+
+[deps]
+
+source_file="res://3.Assets/4.Sound/Saca Carrot.ogg"
+dest_files=[ "res://.import/Saca Carrot.ogg-4abe74e3f94fd6940f0eca9327889159.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -3,7 +3,7 @@
 [ext_resource path="res://3.Assets/1.Art/Carrots/zanahoriaB - 01.png" type="Texture" id=1]
 [ext_resource path="res://2.Scripts/Carrot02Config.gd" type="Script" id=2]
 [ext_resource path="res://3.Assets/1.Art/Carrots/SpriteSheet - CarrotB_Harvested.png" type="Texture" id=3]
-[ext_resource path="res://3.Assets/4.Animations/2.CarrotsNodesHarvested02.tres" type="Animation" id=4]
+[ext_resource path="res://3.Assets/3.Animations/2.CarrotsNodesHarvested02.tres" type="Animation" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 

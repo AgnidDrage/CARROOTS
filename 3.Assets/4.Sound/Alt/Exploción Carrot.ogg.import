@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Exploción Carrot.ogg-c64d900fba3cee7e1ce5f479fd18d148.oggstr"
+
+[deps]
+
+source_file="res://3.Assets/4.Sound/Alt/Exploción Carrot.ogg"
+dest_files=[ "res://.import/Exploción Carrot.ogg-c64d900fba3cee7e1ce5f479fd18d148.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
